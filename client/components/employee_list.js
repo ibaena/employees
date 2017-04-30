@@ -2,16 +2,16 @@ import React from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Employees } from '../../imports/collections/employees';
 
+import EmployeeDetail from './employee_detail';
 
 const EmployeeList = (props) => {
 //props.employees => array of employee objects
-  console.log(props.employees);
-
+// map to render multiple employees
 
   return (
     <div>
       <div className="employee-list">
-        Employee List
+        {props.employees.map(employee => <EmployeeDetail key={employee._id} employee={employee} />)}
       </div>
     </div>
   )
